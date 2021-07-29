@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="style.css" />
+		<title>Sean's Password Generator</title>
+	</head>
+	<body>
+		<!--
+        -The password generator will need to be a form
+        -The user can select the length of the password they want: must be between 2 and 30 characters in length (so will need a max and min)
+        -User has the option to select radio boxes with below selections:
+            -Contains uppercase letters
+            -Contains lowercase letters
+            -Contains numbers
+            -Contains symbols
+        -Button at the bottom of the form called "Generate Password" that the user can click
+            -If no boxes are checked off, the password will be an empty string
+            -When the user clicks the button, we need to update the current password in the box with a random password based on the criteria the user selected
+        
+        -User Story:
+            -User sees an initial password in the top box area that is equal to the string "l823Zs78#Css09@"
+            -If a user hovers over the password box element, a copy element will appear in the top right corner
+            -If a user clicks on the "Copy" element, an alter will appear that says "Password copied to clipboard"
+
+            -If a user wants to create an entirely new password:
+                -They will go through the checkboxes of what they want in terms of criteria for the new password
+                -OnSubmit, will need to determine which check boxes the user selected and create a random password accordingly
+
+        Sections:
+            Need two sections:
+                -A random password at the top which is an element
+                -A form section below
+    -->
+
+		<main>
+			<div class="full_element">
+				<section class="upper_container" id="upper_container">
+					<div class="random_password_container">
+						<p class="random_password" id="random_password">Random Password</p>
+					</div>
+				</section>
+				<section class="lower_container" id="lower_container">
+					<form id="form">
+						<div class="password_criteria">
+							<div class="password_element_container">
+								<label for="len">Password Length</label>
+								<input
+									name="len"
+									id="len"
+									type="number"
+									min="2"
+									max="30"
+									value="15"
+								/>
+							</div>
+							<div class="password_element_container">
+								<label for="uppercase">Contain Uppercase Letters</label>
+								<input name="uppercase" id="uppercase" type="checkbox" />
+							</div>
+                            <div class="password_element_container">
+								<label for="lowercase">Contain Lowercase Letters</label>
+								<input name="lowercase" id="lowercase" type="checkbox" />
+							</div>
+                            <div class="password_element_container">
+								<label for="numbers">Contain Numbers</label>
+								<input name="numbers" id="numbers" type="checkbox" />
+							</div>
+                            <div class="password_element_container">
+								<label for="symbols">Contain Symbols</label>
+								<input name="symbols" id="symbols" type="checkbox" />
+							</div>
+                            <div class="button_container">
+                                <button class="password_generator_button" id="password_generator_button">
+                                    <strong>Generate Password</strong>
+                                </button>
+                            </div>
+						</div>
+					</form>
+				</section>
+			</div>
+		</main>
+
+		<script src="script.js"></script>
+	</body>
+</html>
