@@ -6,6 +6,7 @@
 // Target elements below
 const form = document.getElementById("form");
 const randomPassword = document.getElementById("random_password");
+const copyBtn = document.getElementById("copy");
 
 // Variable declarations
 const numbersList = "1234567890";
@@ -112,6 +113,25 @@ function generateRandomCharacter(str) {
 	return randomCharacter;
 }
 
+// Copy the password to a clipboard and alert the user
+function copyPasswordAndAlert() {
+	const textArea = document.createElement("textarea");
+	const password = randomPassword.innerText;
+
+	if (!password) {
+		return;
+	}
+
+	textArea.value = password;
+	document.body.appendChild(textArea);
+	textArea.select();
+	document.execCommand("copy");
+	textArea.remove();
+
+	alert("Password copied to clipboard")
+}
+
 form.addEventListener("submit", handleFormSubmit);
+copyBtn.addEventListener("click", copyPasswordAndAlert)
 
 getPassword(initialPassword);
